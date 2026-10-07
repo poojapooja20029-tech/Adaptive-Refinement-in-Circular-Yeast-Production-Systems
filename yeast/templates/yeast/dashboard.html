@@ -1,0 +1,140 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yeast Production Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <header class="dashboard-header">
+
+        <div>
+            <h1>Yeast Production Dashboard</h1>
+            <p>Adaptive Refinement in Circular Yeast Production Systems</p>
+        </div>
+
+        <a href="{% url 'home' %}" class="home-button">
+            Home
+        </a>
+
+    </header>
+
+
+    <main class="dashboard-container">
+
+        <h2>Production Management</h2>
+
+        <p class="dashboard-description">
+            Manage production data, predict biomass yield, optimize process
+            conditions, and perform adaptive refinement.
+        </p>
+
+
+        <div class="dashboard-grid">
+
+            <!-- Production Data -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">📊</div>
+
+                <h3>Production Data</h3>
+
+                <p>
+                    Add, view, edit and manage yeast production process data.
+                </p>
+
+                <a href="{% url 'production_data' %}" class="dashboard-button">
+                    Manage Data
+                </a>
+
+            </div>
+
+
+            <!-- Prediction -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">🔬</div>
+
+                <h3>Yield Prediction</h3>
+
+                <p>
+                    Predict yeast biomass using temperature, pH and sugar
+                    concentration.
+                </p>
+
+                <a href="{% url 'prediction' %}" class="dashboard-button">
+                    Predict Yield
+                </a>
+
+            </div>
+
+
+            <!-- Optimization -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">⚙️</div>
+
+                <h3>Process Optimization</h3>
+
+                <p>
+                    Identify process conditions that can provide better
+                    predicted biomass.
+                </p>
+
+                <a href="{% url 'optimization' %}" class="dashboard-button">
+                    Optimize Process
+                </a>
+
+            </div>
+
+
+            <!-- Adaptive Refinement -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">♻️</div>
+
+                <h3>Adaptive Refinement</h3>
+
+                <p>
+                    Compare current conditions with refined conditions and
+                    identify possible improvements.
+                </p>
+
+                <a href="{% url 'adaptive_refinement' %}" class="dashboard-button">
+                    Refine Process
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="dashboard-footer">
+
+        <p>
+            Adaptive Refinement in Circular Yeast Production Systems
+        </p>
+
+        <p>
+            Django • MySQL • Machine Learning
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

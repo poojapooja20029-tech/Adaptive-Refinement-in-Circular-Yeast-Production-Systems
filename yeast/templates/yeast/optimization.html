@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Process Optimization</title>
+</head>
+
+<body>
+
+    <h1>Yeast Process Optimization</h1>
+
+    <p>
+        The system evaluates different process conditions
+        and identifies the condition with the highest predicted biomass.
+    </p>
+
+    <h2>Best Conditions</h2>
+
+    <p>
+        Temperature:
+        {{ best_conditions.temperature }} °C
+    </p>
+
+    <p>
+        pH:
+        {{ best_conditions.ph }}
+    </p>
+
+    <p>
+        Sugar Concentration:
+        {{ best_conditions.sugar }} g/L
+    </p>
+
+    <h2>
+        Predicted Biomass:
+        {{ best_prediction }} g/L
+    </h2>
+
+    <br>
+
+    <a href="{% url 'dashboard' %}">
+        Back to Dashboard
+    </a>
+
+</body>
+
+</html>

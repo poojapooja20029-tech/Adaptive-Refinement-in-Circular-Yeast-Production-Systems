@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Production Data</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Adaptive Yeast Production System</h1>
+        <p>Edit Production Data</p>
+    </header>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>Edit Production Data</h2>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <label>Batch ID</label>
+                <input type="text" name="batch_id" value="{{ data.batch_id }}" required>
+
+                <label>Temperature</label>
+                <input type="number" step="0.01" name="temperature" value="{{ data.temperature }}" required>
+
+                <label>pH</label>
+                <input type="number" step="0.01" name="ph" value="{{ data.ph }}" required>
+
+                <label>Nutrient Level</label>
+                <input type="number" step="0.01" name="nutrient_level" value="{{ data.nutrient_level }}" required>
+
+                <label>Fermentation Time</label>
+                <input type="number" step="0.01" name="fermentation_time" value="{{ data.fermentation_time }}" required>
+
+                <label>Initial Yeast Amount</label>
+                <input type="number" step="0.01" name="initial_yeast_amount" value="{{ data.initial_yeast_amount }}" required>
+
+                <label>Final Yield</label>
+                <input type="number" step="0.01" name="final_yield" value="{{ data.final_yield }}" required>
+
+                <button type="submit">Update Production Data</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Adaptive Yeast Production System</p>
+    </footer>
+
+</body>
+</html>

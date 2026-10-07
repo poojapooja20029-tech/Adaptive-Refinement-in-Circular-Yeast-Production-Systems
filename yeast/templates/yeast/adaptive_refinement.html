@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Adaptive Refinement</title>
+</head>
+
+<body>
+
+    <h1>Adaptive Refinement</h1>
+
+    <p>
+        Compare current process conditions with refined conditions
+        to identify possible improvements in predicted biomass.
+    </p>
+
+    <h2>Current Process Conditions</h2>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>Temperature (°C)</label>
+        <input type="number" step="0.1" name="temperature" required>
+
+        <br><br>
+
+        <label>pH</label>
+        <input type="number" step="0.1" name="ph" required>
+
+        <br><br>
+
+        <label>Sugar Concentration (g/L)</label>
+        <input type="number" step="0.1" name="sugar" required>
+
+        <br><br>
+
+        <button type="submit">
+            Refine Process
+        </button>
+
+    </form>
+
+    {% if current_prediction %}
+
+        <h2>Current Predicted Biomass</h2>
+
+        <p>
+            {{ current_prediction }} g/L
+        </p>
+
+        <h2>Refined Conditions</h2>
+
+        <p>
+            Temperature:
+            {{ best_temperature }} °C
+        </p>
+
+        <p>
+            pH:
+            {{ best_ph }}
+        </p>
+
+        <p>
+            Sugar Concentration:
+            {{ best_sugar }} g/L
+        </p>
+
+        <h2>Refined Predicted Biomass</h2>
+
+        <p>
+            {{ refined_prediction }} g/L
+        </p>
+
+        <h2>Adaptive Refinement Suggestion</h2>
+
+        <p>
+            {{ suggestion }}
+        </p>
+
+    {% endif %}
+
+    <br>
+
+    <a href="{% url 'dashboard' %}">
+        Back to Dashboard
+    </a>
+
+</body>
+
+</html>
