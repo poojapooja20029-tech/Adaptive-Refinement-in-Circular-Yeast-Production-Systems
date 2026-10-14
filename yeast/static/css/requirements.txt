@@ -1,5 +1,0 @@
-Django==5.2.18
-mysqlclient==2.3.0
-pandas
-scikit-learn
-joblib
