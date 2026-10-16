@@ -1,42 +1,17 @@
-
-# Python
 __pycache__/
 *.py[cod]
-*$py.class
-
-# Virtual Environment
 venv/
 .venv/
-ENV/
 env/
-
-# Environment variables and secrets
 .env
 .env.*
 !.env.example
-
-# Django
 db.sqlite3
 media/
-staticfiles/
-
-# Collected static files
-static/
-
-# IDE
+# staticfiles/ and yeast/static/ MUST be committed (CSS Vercel-ல வர)
 .vscode/
 .idea/
-
-# Operating System
 .DS_Store
 Thumbs.db
-
-# Logs
 *.log
-
-# Test and coverage
-.coverage
-htmlcov/
-.pytest_cache/
 .vercel/
-__pycache__/

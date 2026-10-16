@@ -1,9 +1,19 @@
+from functools import lru_cache
+
+from django.conf import settings
 from django.shortcuts import render, redirect
 import joblib
 import pandas as pd
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .models import ProductionData
+
+MODEL_PATH = settings.BASE_DIR / 'yeast' / 'dataset' / 'yeast_biomass_model.pkl'
+
+
+@lru_cache(maxsize=1)
+def get_model():
+    return joblib.load(MODEL_PATH)
 
 
 def home(request):
@@ -119,9 +129,7 @@ def predict_biomass(request):
         ph = float(request.POST.get('ph'))
         sugar = float(request.POST.get('sugar'))
 
-        model = joblib.load(
-            'yeast/dataset/yeast_biomass_model.pkl'
-        )
+        model = get_model()
 
         prediction = model.predict(
             pd.DataFrame(
@@ -141,9 +149,7 @@ def predict_biomass(request):
 
 def process_optimization(request):
 
-    model = joblib.load(
-        'yeast/dataset/yeast_biomass_model.pkl'
-    )
+    model = get_model()
 
     temperatures = [29, 31, 33, 35, 37]
     ph_values = [4.5, 5.0, 5.5, 6.0, 6.5]
@@ -199,9 +205,7 @@ def adaptive_refinement(request):
         ph = float(request.POST.get('ph'))
         sugar = float(request.POST.get('sugar'))
 
-        model = joblib.load(
-            'yeast/dataset/yeast_biomass_model.pkl'
-        )
+        model = get_model()
 
         current_prediction = model.predict(
             pd.DataFrame(
